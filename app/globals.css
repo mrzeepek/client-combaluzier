@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: #faf8f5;
+    color: #1a1714;
+    overflow-x: hidden;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  /* Boutons */
+  .btn-primary {
+    @apply inline-flex items-center justify-center whitespace-nowrap gap-2 bg-gold text-cream px-7 py-3.5 text-xs tracking-[0.2em] uppercase font-sans font-medium transition-colors duration-200 hover:bg-gold-dark;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center whitespace-nowrap gap-2 text-charcoal border-b border-charcoal/30 pb-px text-xs tracking-[0.2em] uppercase font-sans font-medium transition-all duration-200 hover:border-gold hover:text-gold;
+  }
+
+  .btn-ghost-light {
+    @apply inline-flex items-center gap-2 text-cream/70 border-b border-cream/20 pb-px text-xs tracking-[0.2em] uppercase font-sans font-medium transition-all duration-200 hover:border-gold hover:text-gold;
+  }
+
+  /* Sections label */
+  .section-label {
+    @apply text-xs tracking-[0.3em] uppercase text-gold font-sans;
+  }
+
+  /* Séparateur gold */
+  .gold-rule {
+    @apply block h-px bg-gold;
+  }
+}
+
+@layer utilities {
+  /* Animation scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
